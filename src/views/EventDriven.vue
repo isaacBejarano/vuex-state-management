@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
-    <h1>EventDriven</h1>
-  </div>
+	<section>
+		<h1>EventDriven</h1>
+	</section>
 </template>

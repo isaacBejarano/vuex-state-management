@@ -1,7 +1,7 @@
 <template>
-	<div class="home">
+	<section>
 		<img alt="Vue logo" width="100" loading="lazy" src="../assets/logo.png" />
-	</div>
+	</section>
 </template>
 
 <script lang="ts">

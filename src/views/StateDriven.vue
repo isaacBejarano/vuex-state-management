@@ -1,11 +1,12 @@
 <template>
-	<div class="home">
+	<section>
 		<img alt="Vue logo" width="100" loading="lazy" src="../assets/logo.png" />
-	</div>
+	</section>
 </template>
 
 <script lang="ts">
-	import { Vue } from "vue-class-component";
-
-	export default class StateDriven extends Vue {}
+	export default {
+		name: "StateDriven", // devtools
+		setup() :any{},
+	};
 </script>

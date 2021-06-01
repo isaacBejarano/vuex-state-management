@@ -1,17 +1,22 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
-import StateDriven from "../views/StateDriven.vue";
+import Uncommunicated from "../views/Uncommunicated.vue";
 
 const routes: Array<RouteRecordRaw> = [
 	{
 		path: "/",
-		name: "State Driven",
-		component: StateDriven,
+		name: "Uncommunicated",
+		component: Uncommunicated,
 	},
 	{
 		path: "/event-driven",
 		name: "Event Driven",
 		component: () => import("../views/EventDriven.vue"), // lazy
+	},
+	{
+		path: "/state-driven",
+		name: "StateDriven",
+		component: () => import("../views/StateDriven.vue"), // lazy
 	},
 ];
 

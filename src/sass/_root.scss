@@ -11,11 +11,16 @@
 		cursor: pointer;
 		outline: none;
 		border: 1px solid gray;
-		border-radius: 26px;
+		max-width: 80px;
+		min-width: 50px;
+		border-radius: 10px;
 		box-shadow: 0px 1px 8px -1px #00000080;
 
 		&:hover {
 			box-shadow: inset 0px 0px 5px 2px #00000080;
+		}
+		&:active {
+			box-shadow: inset 0px 0px 12px 2px #00000080;
 		}
 	}
 	.btn-add {

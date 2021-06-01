@@ -1,6 +1,6 @@
 <template>
 	<header>
-		<img alt="Vue logo" width="35" loading="lazy" src="./assets/logo.png" />
+		<img alt="Vue logo" width="35" src="./assets/logo.png" />
 
 		<h1>{{ titles[0] }}</h1>
 		<h2>{{ titles[1] }}</h2>

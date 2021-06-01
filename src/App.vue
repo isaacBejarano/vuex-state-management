@@ -8,10 +8,6 @@
 		<Navbar></Navbar>
 	</header>
 
-	<!-- Counter -->
-
-	<p class="state">state: {{ state }}</p>
-
 	<!-- router-view -->
 	<router-view />
 
@@ -19,7 +15,7 @@
 </template>
 
 <script lang="ts">
-	import { ref, computed } from "vue";
+	import { ref } from "vue";
 
 	import Footer from "@/components/footer.vue";
 	import Navbar from "@/components/nav.vue";
@@ -34,11 +30,8 @@
 			const titles = ref(<string[]>["VUE 3.0", "State-driven Counter vs. Event-driven Counter"]);
 			titles.value[0] = titles.value[0] + " + VUEX"; // write/read
 
-			// state
-			const state = computed((): number => titles.value.length);
-
 			//  -> props
-			return { titles, state };
+			return { titles };
 		},
 	};
 
@@ -68,7 +61,7 @@
 		background-color: whitesmoke;
 
 		header {
-			background-color: #5028f121;
+			background-color: #5028f110;
 			padding: 1rem;
 			border: 1px solid #2c3e50;
 			h1 {

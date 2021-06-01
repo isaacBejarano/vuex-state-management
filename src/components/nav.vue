@@ -1,31 +1,30 @@
 <template>
 	<nav>
-		<router-link :to="navLinks[0][1]">{{ navLinks[0][0] }}</router-link>
-		|
-		<router-link :to="navLinks[1][1]">{{ navLinks[1][0] }}</router-link>
+		<router-link v-for="(link, i) in navLinks" :key="i" :to="link[1]">
+			{{ link[0] }}
+
+			<span v-if="i < navLinksLastIdx">|</span>
+		</router-link>
 	</nav>
 </template>
 
 <script lang="ts">
-	import { ref } from "vue";
+	import { ref, computed } from "vue";
 
 	export default {
 		setup(): object {
 			// props
 			const navLinks = ref(<string[][]>[
-				["VUEX-driven", "/"],
+				["Uncommunicated", "/"],
 				["Event-driven", "/event-driven"],
+				["VUEX-drive", "/state-driven"],
 			]);
 
-			// DI
-			// const key: InjectionKey<string> = Symbol();
-			// provide(key, "foo");
-			// const foo: string | undefined = inject(key);
-
-			// const bar = inject<string | undefined>("bar");
+			// computed
+			const navLinksLastIdx = computed(() => navLinks.value.length - 1);
 
 			// return props
-			return { navLinks };
+			return { navLinks, navLinksLastIdx };
 		},
 	};
 
@@ -37,6 +36,9 @@
 <style lang="scss" scoped>
 	nav {
 		padding: 1rem;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 
 		a {
 			font-weight: bold;
@@ -45,6 +47,10 @@
 			&.router-link-exact-active {
 				color: #42b983;
 			}
+		}
+
+		span {
+			padding: 1rem;
 		}
 	}
 </style>

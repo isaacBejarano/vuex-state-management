@@ -1,8 +1,7 @@
 <template>
 	<footer>
 		<small>{{ developer }}</small>
-		<small>Made with &#128154; in Vue 3.0, VueX and SASS</small>
-		<small>{{ year }}</small>
+		<small>{{ made }}</small>
 	</footer>
 </template>
 
@@ -12,21 +11,17 @@
 	export default {
 		setup(): object {
 			// props
-			const developer = ref(<string>"Isaac Bejarano");
-			const year = ref(<string>"2021");
+			const developer = ref(<string>"@ 2021 Isaac Bejarano");
+			const made = ref(<string>"Made with 💚 in Vue 3.0, VueX and SASS");
 
 			// return props
-			return { developer, year };
+			return { developer, made };
 		},
 	};
-
-	// NOTE:
-	// We can force type inference by using defineComponent()
-	// I think, explcicid TS typing is more reliable and robust :)
 </script>
 
 <style lang="scss" scoped>
-	small:nth-child(n + 1) {
+	small:nth-child(1) {
 		display: block;
 	}
 	small:nth-child(2) {

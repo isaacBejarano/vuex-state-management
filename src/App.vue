@@ -1,5 +1,7 @@
 <template>
 	<header>
+		<img alt="Vue logo" width="35" loading="lazy" src="./assets/logo.png" />
+
 		<h1>{{ titles[0] }}</h1>
 		<h2>{{ titles[1] }}</h2>
 
@@ -22,7 +24,6 @@
 	import Footer from "@/components/footer.vue";
 	import Navbar from "@/components/nav.vue";
 
-	// NOTE: Shell App has no class
 	export default {
 		components: {
 			Navbar,
@@ -40,6 +41,13 @@
 			return { titles, state };
 		},
 	};
+
+	/*
+	NOTE:
+		Shell App has no class
+		We can force type inference by using defineComponent()
+		I think, explcicid TS typing is more reliable and robust :)
+	*/
 </script>
 
 <style lang="scss">

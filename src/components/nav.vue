@@ -50,6 +50,7 @@
 		}
 
 		span {
+			color: initial;
 			padding: 1rem;
 		}
 	}

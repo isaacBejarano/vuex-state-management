@@ -1,14 +1,12 @@
 <template>
 	<header>
+		<img alt="Vue logo" width="35" loading="lazy" src="./assets/logo.png" />
+
 		<h1>{{ titles[0] }}</h1>
 		<h2>{{ titles[1] }}</h2>
 
 		<Navbar></Navbar>
 	</header>
-
-	<!-- Counter -->
-
-	<p class="state">state: {{ state }}</p>
 
 	<!-- router-view -->
 	<router-view />
@@ -17,12 +15,11 @@
 </template>
 
 <script lang="ts">
-	import { ref, computed } from "vue";
+	import { ref } from "vue";
 
 	import Footer from "@/components/footer.vue";
 	import Navbar from "@/components/nav.vue";
 
-	// NOTE: Shell App has no class
 	export default {
 		components: {
 			Navbar,
@@ -33,13 +30,17 @@
 			const titles = ref(<string[]>["VUE 3.0", "State-driven Counter vs. Event-driven Counter"]);
 			titles.value[0] = titles.value[0] + " + VUEX"; // write/read
 
-			// state
-			const state = computed((): number => titles.value.length);
-
 			//  -> props
-			return { titles, state };
+			return { titles };
 		},
 	};
+
+	/*
+	NOTE:
+		Shell App has no class
+		We can force type inference by using defineComponent()
+		I think, explcicid TS typing is more reliable and robust :)
+	*/
 </script>
 
 <style lang="scss">
@@ -60,7 +61,7 @@
 		background-color: whitesmoke;
 
 		header {
-			background-color: #5028f121;
+			background-color: #5028f110;
 			padding: 1rem;
 			border: 1px solid #2c3e50;
 			h1 {
@@ -85,4 +86,7 @@
 			color: #42b983;
 		}
 	}
+
+	// root
+	@import "./sass/root";
 </style>

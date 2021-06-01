@@ -1,30 +1,32 @@
 <template>
-	<section class="btn-group">
+	<div class="btn-group">
 		<!-- setup increment -->
 		<fieldset>
 			<label for="nw"></label>
 			Setup Increment:
-			<input v-model="n" id="n" type="number" step="1" min="1"/>
+			<input v-model="incrementBy" id="n" type="number" step="1" min="1" />
 		</fieldset>
 
 		<!-- incremenors -->
-		<button class="btn btn-add" @mousedown="add(n)">+ {{ n }}</button>
-		<button class="btn btn-substract" @mousedown="substract(n)">- {{ n }}</button>
+		<button class="btn btn-add" @mousedown="add(incrementBy)">+ {{ incrementBy }}</button>
+		<button class="btn btn-substract" @mousedown="substract(incrementBy)">- {{ incrementBy }}</button>
 
 		<!-- local state -->
-		state: {{ state }}
-	</section>
+		counter state: {{ state }}
+	</div>
 </template>
 
 <script lang="ts">
-	import { ref } from "vue";
+	import { ref, watchEffect } from "vue";
 
 	export default {
 		name: "Uncommunicated", // devtools
 		setup(): object {
+			const limitN = 1;
+
 			// props
-			const state = ref(0);
-			const n = ref(1);
+			let incrementBy = ref(limitN);
+			let state = ref(0);
 
 			// methods
 			function add(n: number): void {
@@ -35,7 +37,10 @@
 				state.value -= +n;
 			}
 
-			return { state, add, substract, n };
+			// watch
+			watchEffect(() => (incrementBy.value = +incrementBy.value > limitN ? +incrementBy.value : limitN));
+
+			return { state, add, substract, incrementBy };
 		},
 	};
 </script>

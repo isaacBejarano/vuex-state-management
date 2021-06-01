@@ -1,5 +1,10 @@
 <template>
 	<div class="btn-group">
+		<h5>Counter Component</h5>
+
+		<!-- local state -->
+		<small>counter state: {{ state }}</small>
+
 		<!-- setup increment -->
 		<fieldset>
 			<label for="nw"></label>
@@ -10,9 +15,6 @@
 		<!-- incremenors -->
 		<button class="btn btn-add" @mousedown="add(incrementBy)">+ {{ incrementBy }}</button>
 		<button class="btn btn-substract" @mousedown="substract(incrementBy)">- {{ incrementBy }}</button>
-
-		<!-- local state -->
-		counter state: {{ state }}
 	</div>
 </template>
 
@@ -46,6 +48,20 @@
 </script>
 
 <style lang="scss">
+
+	h5,
+	small {
+		color: darkblue;
+	}
+
+	h5 {
+		font-size: 0.9rem;
+	}
+
+	small {
+		display: block;
+		margin-bottom: 1rem;
+	}
 	fieldset {
 		border: none;
 		margin-bottom: 0.5rem;

@@ -1,0 +1,21 @@
+.btn-group {
+	padding: 1rem;
+	background-color: pink;
+
+	.btn {
+		padding: 1rem;
+		outline: none;
+		cursor: pointer;
+		&:hover {
+			filter: drop-shadow(1);
+		}
+	}
+	.btn-add {
+		margin-right: 0.5rem;
+		background-color: palegreen;
+	}
+	.btn-substract {
+		margin-right: 0.5rem;
+		background-color: palevioletred;
+	}
+}

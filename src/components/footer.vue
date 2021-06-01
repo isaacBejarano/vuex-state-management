@@ -1,6 +1,8 @@
 <template>
 	<footer>
 		<small>{{ developer }}</small>
+		<small>Made with &#128154; in Vue 3.0, VueX and SASS</small>
+		<small>{{ year }}</small>
 	</footer>
 </template>
 
@@ -10,10 +12,11 @@
 	export default {
 		setup(): object {
 			// props
-			const developer = ref(<string>"Isaac Bejarano. 2021");
+			const developer = ref(<string>"Isaac Bejarano");
+			const year = ref(<string>"2021");
 
 			// return props
-			return { developer };
+			return { developer, year };
 		},
 	};
 
@@ -23,9 +26,11 @@
 </script>
 
 <style lang="scss" scoped>
-	footer {
-		padding: 1rem;
-		background-color: #2c3e50;
-		color: #42b983;
+	small:nth-child(n + 1) {
+		display: block;
+	}
+	small:nth-child(2) {
+		color: gainsboro;
+		font-weight: lighter;
 	}
 </style>

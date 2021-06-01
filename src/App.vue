@@ -85,4 +85,7 @@
 			color: #42b983;
 		}
 	}
+
+	// root
+	@import "./sass/root";
 </style>

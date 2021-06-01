@@ -12,9 +12,25 @@
 			<input v-model="incrementBy" id="n" type="number" step="1" min="1" />
 		</fieldset>
 
-		<!-- incremenors -->
-		<button class="btn btn-add" @mousedown="add(incrementBy)">+ {{ incrementBy }}</button>
-		<button class="btn btn-substract" @mousedown="substract(incrementBy)">- {{ incrementBy }}</button>
+		<!-- incrementors -->
+		<button
+			class="btn btn-add"
+			@mousedown="
+				add(incrementBy);
+				$emit('emitCounter', [$event, state]);
+			"
+		>
+			+ {{ incrementBy }}
+		</button>
+		<button
+			class="btn btn-substract"
+			@mousedown="
+				substract(incrementBy);
+				$emit('emitCounter', [$event, state]);
+			"
+		>
+			- {{ incrementBy }}
+		</button>
 	</div>
 </template>
 
@@ -22,7 +38,14 @@
 	import { ref, watchEffect } from "vue";
 
 	export default {
-		name: "Uncommunicated", // devtools
+		// devtools
+		name: "Uncommunicated",
+		// Events
+		emits: {
+			["emitCounter"](e: Event, payload: number) {
+				return [e, payload];
+			},
+		},
 		setup(): object {
 			const limitN = 1;
 
@@ -48,7 +71,6 @@
 </script>
 
 <style lang="scss">
-
 	h5,
 	small {
 		color: darkblue;

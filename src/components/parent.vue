@@ -1,7 +1,7 @@
 <template>
 	<section class="parent">
 		<h3>Parent Component</h3>
-		<h4>Parent State: {{ state }}</h4>
+		<!-- <h4>Parent State: {{ state }}</h4> -->
 		<Counter></Counter>
 
 		<!-- Child -->
@@ -19,10 +19,10 @@
 		name: "Uncommunicated", // devtools
 		components: { Counter, Child },
 
-		setup(): object {
-			const state = ref(0);
-			return { state };
-		},
+		// setup(): object {
+		// 	const state = ref(0);
+		// 	return { state };
+		// },
 	};
 </script>
 

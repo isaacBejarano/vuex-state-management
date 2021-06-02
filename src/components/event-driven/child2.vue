@@ -3,37 +3,34 @@
 		<h3>Child Component</h3>
 		<h4>Child State: {{ state2 }}</h4>
 
-		<!-- TODO: COUNTER - SLOT ME! -->
-		<div class="btn-group">
-			<h5>Counter Component</h5>
-
-			<!-- setup increment -->
-			<fieldset>
-				<label for="nw"></label>
-				Setup Increment:
+		<Counter>
+			<!-- input -->
+			<template v-slot:input>
 				<input v-model="incrementBy" id="n" type="number" step="1" min="1" />
-			</fieldset>
+			</template>
 
-			<!-- incrementors -->
-			<button
-				class="btn btn-add"
-				@mousedown="
-					add(incrementBy);
-					$emit('emited-counter2', [$event, state2]);
-				"
-			>
-				+ {{ incrementBy }}
-			</button>
-			<button
-				class="btn btn-substract"
-				@mousedown="
-					substract(incrementBy);
-					$emit('emited-counter2', [$event, state2]);
-				"
-			>
-				- {{ incrementBy }}
-			</button>
-		</div>
+			<!-- tune -->
+			<template v-slot:tune>
+				<button
+					class="btn btn-add"
+					@mousedown="
+						add(incrementBy);
+						$emit('emited-counter2', [$event, state2]);
+					"
+				>
+					+ {{ incrementBy }}
+				</button>
+				<button
+					class="btn btn-substract"
+					@mousedown="
+						substract(incrementBy);
+						$emit('emited-counter2', [$event, state2]);
+					"
+				>
+					- {{ incrementBy }}
+				</button>
+			</template>
+		</Counter>
 
 		<!-- GrandChild -->
 		<GrandChild2

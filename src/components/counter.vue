@@ -2,70 +2,21 @@
 	<div class="btn-group">
 		<h5>Counter Component</h5>
 
-		<!-- setup increment -->
+		<!-- input -->
 		<fieldset>
 			<label for="nw"></label>
 			Setup Increment:
-			<input v-model="incrementBy" id="n" type="number" step="1" min="1" />
+			<slot name="input"></slot>
 		</fieldset>
 
-		<!-- incrementors -->
-		<button
-			class="btn btn-add"
-			@mousedown="
-				add(incrementBy);
-				$emit('emitCounter', [$event, state]);
-			"
-		>
-			+ {{ incrementBy }}
-		</button>
-		<button
-			class="btn btn-substract"
-			@mousedown="
-				substract(incrementBy);
-				$emit('emitCounter', [$event, state]);
-			"
-		>
-			- {{ incrementBy }}
-		</button>
+		<!-- tune -->
+		<slot name="tune"></slot>
 	</div>
 </template>
 
 <script lang="ts">
-	import { ref, watchEffect } from "vue";
-
 	export default {
 		name: "Counter", // devtools
-		// Events
-		emits: {
-			["emitCounter"](e: Event, payload: number) {
-				return [e, payload];
-			},
-		},
-		props: { stateInit: Number },
-		setup(props: any): object {
-			const limitN = 1;
-
-			// props
-			let state = ref(props.stateInit);
-
-			// attrs
-			let incrementBy = ref(limitN);
-
-			// methods
-			function add(n: number): void {
-				state.value += +n;
-			}
-
-			function substract(n: number): void {
-				state.value -= +n;
-			}
-
-			// watch
-			watchEffect(() => (incrementBy.value = +incrementBy.value > limitN ? +incrementBy.value : limitN));
-
-			return { state, add, substract, incrementBy };
-		},
 	};
 </script>
 

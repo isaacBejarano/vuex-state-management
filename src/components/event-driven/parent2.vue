@@ -3,21 +3,18 @@
 		<h3>Parent Component</h3>
 		<h4>Parent State: {{ state1 }}</h4>
 
-		<!-- TODO: COUNTER - SLOT ME! -->
-		<div class="btn-group">
-			<h5>Counter Component</h5>
-
-			<!-- setup increment -->
-			<fieldset>
-				<label for="nw"></label>
-				Setup Increment:
+		<Counter>
+			<!-- input -->
+			<template v-slot:input>
 				<input v-model="incrementBy" id="n" type="number" step="1" min="1" />
-			</fieldset>
+			</template>
 
-			<!-- incrementors -->
-			<button class="btn btn-add" @mousedown="add(incrementBy)">+ {{ incrementBy }}</button>
-			<button class="btn btn-substract" @mousedown="substract(incrementBy)">- {{ incrementBy }}</button>
-		</div>
+			<!-- tune -->
+			<template v-slot:tune>
+				<button class="btn btn-add" @mousedown="add(incrementBy)">+ {{ incrementBy }}</button>
+				<button class="btn btn-substract" @mousedown="substract(incrementBy)">- {{ incrementBy }}</button>
+			</template>
+		</Counter>
 
 		<!-- Child -->
 		<Child2 :state="state1" @emited-counter2="counter(...$event)"></Child2>

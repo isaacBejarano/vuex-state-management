@@ -58,6 +58,7 @@
 		text-align: center;
 		color: #2c3e50;
 		background-color: whitesmoke;
+		user-select: none;
 
 		header {
 			background-color: #5028f110;

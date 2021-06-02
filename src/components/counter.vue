@@ -2,9 +2,6 @@
 	<div class="btn-group">
 		<h5>Counter Component</h5>
 
-		<!-- local state -->
-		<small>counter state: {{ state }}</small>
-
 		<!-- setup increment -->
 		<fieldset>
 			<label for="nw"></label>

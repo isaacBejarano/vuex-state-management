@@ -1,7 +1,7 @@
 <template>
 	<section class="child3">
 		<h3>Child Component</h3>
-		<h4>Child State: GrandChild State: {{ state2 }}</h4>
+		<h4>Child State: {{ state2 }}</h4>
 
 		<Counter @emit-counter="counter(...$event)" :stateInit="state_init"></Counter>
 
@@ -38,7 +38,7 @@
 </script>
 
 <style lang="scss">
-	.child3{
+	.child3 {
 		padding: 1rem;
 		background-color: paleturquoise;
 	}

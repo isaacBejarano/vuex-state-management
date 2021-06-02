@@ -3,32 +3,79 @@
 		<h3>GrandChild Component</h3>
 		<h4>GrandChild State: {{ state3 }}</h4>
 
-		<Counter @emit-counter="counter(...$event)" :stateInit="state_init"></Counter>
+		<!-- TODO: COUNTER - SLOT ME! -->
+		<div class="btn-group">
+			<h5>Counter Component</h5>
+
+			<!-- setup increment -->
+			<fieldset>
+				<label for="nw"></label>
+				Setup Increment:
+				<input v-model="incrementBy" id="n" type="number" step="1" min="1" />
+			</fieldset>
+
+			<!-- incrementors -->
+			<button
+				class="btn btn-add"
+				@mousedown="
+					add(incrementBy);
+					$emit('emited-counter3', [$event, state3]);
+				"
+			>
+				+ {{ incrementBy }}
+			</button>
+			<button
+				class="btn btn-substract"
+				@mousedown="
+					substract(incrementBy);
+					$emit('emited-counter3', [$event, state3]);
+				"
+			>
+				- {{ incrementBy }}
+			</button>
+		</div>
 	</section>
 </template>
 
 <script lang="ts">
-	import { ref } from "vue";
+	import { ref, watchEffect } from "vue";
 
 	import Counter from "../counter.vue";
 
 	export default {
 		name: "GrandChild2", // devtools
 		components: { Counter },
-		props: { stateInit: Number },
+		props: { state: Number },
+		// Events
+		emits: {
+			["emited-counter3"](e: Event, payload: number) {
+				return [e, payload];
+			},
+		},
 		setup(props: any) {
-			// -> props
-			let state_init = ref(props.stateInit);
+			const limitN = 1;
 
 			// attr
-			let state3 = ref(state_init);
+			let incrementBy = ref(limitN);
+			let state3 = ref(props.state);
 
 			// methods
 			function counter(e: Event, payload: number) {
 				state3.value = payload;
 			}
 
-			return { state3, state_init, counter };
+			function add(n: number): void {
+				state3.value += +n;
+			}
+
+			function substract(n: number): void {
+				state3.value -= +n;
+			}
+
+			// watch
+			watchEffect(() => (state3.value = props.state));
+
+			return { incrementBy, state3, counter, add, substract };
 		},
 	};
 </script>

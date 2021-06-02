@@ -20,7 +20,7 @@
 	};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	h5,
 	small {
 		color: darkblue;

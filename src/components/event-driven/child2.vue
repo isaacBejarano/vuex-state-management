@@ -91,5 +91,15 @@
 	.child2 {
 		padding: 1rem;
 		background-color: palegoldenrod;
+
+		h4 {
+			color: blueviolet;
+			padding: 1rem;
+			background-color: gainsboro;
+			border: 1px solid gray;
+			border-radius: 5px;
+			max-width: 180px;
+			margin: 0 auto;
+		}
 	}
 </style>

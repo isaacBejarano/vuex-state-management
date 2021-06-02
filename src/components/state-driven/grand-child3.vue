@@ -50,5 +50,15 @@
 	.grand-child {
 		padding: 1rem;
 		background-color: cadetblue;
+
+		h4 {
+			color: blueviolet;
+			padding: 1rem;
+			background-color: gainsboro;
+			border: 1px solid gray;
+			border-radius: 5px;
+			max-width: 180px;
+			margin: 0 auto;
+		}
 	}
 </style>

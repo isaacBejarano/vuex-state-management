@@ -45,8 +45,13 @@
 		border: 1px solid gray;
 
 		h4 {
-			color: palegreen;
-			text-shadow: 0px 1px 4px black;
+			color: blueviolet;
+			padding: 1rem;
+			background-color: gainsboro;
+			border: 1px solid gray;
+			border-radius: 5px;
+			max-width: 180px;
+			margin: 0 auto;
 		}
 	}
 </style>

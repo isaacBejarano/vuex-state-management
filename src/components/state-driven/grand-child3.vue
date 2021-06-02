@@ -1,5 +1,5 @@
 <template>
-	<section class="grand-child2">
+	<section class="grand-child3">
 		<h3>GrandChild Component</h3>
 		<h4>GrandChild State: {{ state3 }}</h4>
 
@@ -13,7 +13,7 @@
 	import Counter from "../counter.vue";
 
 	export default {
-		name: "GrandChild2", // devtools
+		name: "GrandChild3", // devtools
 		components: { Counter },
 		props: { stateInit: Number },
 		setup(props: any) {
@@ -34,8 +34,8 @@
 </script>
 
 <style lang="scss">
-	.grand-child2 {
+	.grand-child3 {
 		padding: 1rem;
-		background-color: goldenrod;
+		background-color: turquoise;
 	}
 </style>

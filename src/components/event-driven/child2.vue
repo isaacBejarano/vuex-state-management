@@ -40,6 +40,6 @@
 <style lang="scss">
 	.child2 {
 		padding: 1rem;
-		background-color: pink;
+		background-color: palegoldenrod;
 	}
 </style>

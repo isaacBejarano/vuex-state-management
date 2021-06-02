@@ -1,19 +1,12 @@
 <template>
-	<h3>Parent Component</h3>
-	<Counter></Counter>
-
-	<!-- Child -->
-	<h3>Child Component</h3>
-
-	<!-- GrandChild -->
-	<h3>Grand Child Component</h3>
+	<Parent></Parent>
 </template>
 
 <script lang="ts">
-	import Counter from "../components/counter.vue";
+	import Parent from "../components/uncommunicated/parent.vue";
 
 	export default {
 		name: "Uncommunicated", // devtools
-		components: { Counter },
+		components: { Parent },
 	};
 </script>

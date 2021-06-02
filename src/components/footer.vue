@@ -22,6 +22,7 @@
 
 <style lang="scss" scoped>
 	small:nth-child(1) {
+		color: inherit;
 		display: block;
 	}
 	small:nth-child(2) {

@@ -21,12 +21,18 @@
 </script>
 
 <style lang="scss" scoped>
-	small:nth-child(1) {
-		color: inherit;
-		display: block;
-	}
-	small:nth-child(2) {
-		color: gainsboro;
-		font-weight: lighter;
+	footer {
+		padding: 1rem;
+		background-color: #2c3e50;
+		color: #42b983;
+
+		small:nth-child(1) {
+			color: inherit;
+			display: block;
+		}
+		small:nth-child(2) {
+			color: gainsboro;
+			font-weight: lighter;
+		}
 	}
 </style>

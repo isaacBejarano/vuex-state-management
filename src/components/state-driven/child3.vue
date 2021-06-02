@@ -12,7 +12,7 @@
 			<!-- tune -->
 			<template v-slot:tune>
 				<button class="btn btn-add" @mousedown="incrementPlusOrMinus(incrementBy, 'plus')">+ {{ incrementBy }}</button>
-				<button class="btn btn-substract" @mousedown="incrementPlusOrMinus(incrementBy, 'minus')">+ {{ incrementBy }}</button>
+				<button class="btn btn-substract" @mousedown="incrementPlusOrMinus(incrementBy, 'minus')">- {{ incrementBy }}</button>
 			</template>
 		</Counter>
 

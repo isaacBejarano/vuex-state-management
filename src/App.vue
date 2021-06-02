@@ -8,6 +8,16 @@
 		<Navbar></Navbar>
 	</header>
 
+	<section id="social-media">
+		<a class="link-github" href="https://github.com/isaacBejarano/vuex-counter-example" target="_blank">
+			<!-- octicon -->
+			<Octicon></Octicon>
+			<span>
+				https://github.com/isaacBejarano/vuex-counter-example
+			</span>
+		</a>
+	</section>
+
 	<!-- router-view -->
 	<router-view />
 
@@ -19,11 +29,13 @@
 
 	import Footer from "@/components/footer.vue";
 	import Navbar from "@/components/nav.vue";
+	import Octicon from "@/components/icons/octicon.vue";
 
 	export default {
 		components: {
 			Navbar,
 			Footer,
+			Octicon,
 		},
 		setup(): object {
 			//  props
@@ -73,17 +85,22 @@
 			}
 		}
 
-		.state {
-			padding: 1rem;
-			margin: 0;
-			border: 0 solid #2c3e50;
-			border-width: 0px 0px 1px;
-		}
+		#social-media {
+			margin-top: 3rem;
 
-		footer {
-			padding: 1rem;
-			background-color: #2c3e50;
-			color: #42b983;
+			.link-github {
+				display: inline-flex;
+				text-decoration: none;
+				// octicon + span
+				span {
+					margin-left: 0.5rem;
+					color: #2c3e50;
+					font-size: 0.9rem;
+					&:hover {
+						color: #42b983;
+					}
+				}
+			}
 		}
 	}
 

@@ -17,7 +17,7 @@
 			const navLinks = ref(<string[][]>[
 				["Uncommunicated", "/"],
 				["Event-driven", "/event-driven"],
-				["VUEX-drive", "/state-driven"],
+				["VUEX / State-driven", "/state-driven"],
 			]);
 
 			// computed

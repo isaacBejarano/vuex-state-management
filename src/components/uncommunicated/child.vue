@@ -19,7 +19,6 @@
 		<!-- GrandChild -->
 		<GrandChild></GrandChild>
 	</section>
-	s
 </template>
 
 <script lang="ts">

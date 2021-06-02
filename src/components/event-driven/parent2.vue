@@ -1,12 +1,12 @@
 <template>
-	<section class="parent">
+	<section class="parent2">
 		<h3>Parent Component</h3>
 		<h4>Parent State: {{ state1 }}</h4>
 
 		<Counter @emit-counter="counter(...$event)" :stateInit="state_init"></Counter>
 
 		<!-- Child -->
-		<Child :stateInit="state_init"></Child>
+		<Child2 :stateInit="state_init"></Child2>
 	</section>
 </template>
 
@@ -14,11 +14,11 @@
 	import { ref } from "vue";
 
 	import Counter from "../counter.vue";
-	import Child from "./child.vue";
+	import Child2 from "./child2.vue";
 
 	export default {
-		name: "Parent", // devtools
-		components: { Counter, Child },
+		name: "Parent2", // devtools
+		components: { Counter, Child2 },
 		setup() {
 			// -> prop
 			let state_init = ref(0);
@@ -37,7 +37,7 @@
 </script>
 
 <style lang="scss">
-	.parent {
+	.parent2 {
 		padding: 1rem;
 		max-width: 678px;
 		margin: 3rem auto;

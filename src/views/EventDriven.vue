@@ -1,14 +1,12 @@
 <template>
-	<section>
-		<h1>EventDriven</h1>
-	</section>
+	<Parent2></Parent2>
 </template>
 
 <script lang="ts">
+	import Parent2 from "../components/event-driven/parent2.vue";
+
 	export default {
 		name: "EventDriven", // devtools
-		setup(): any {
-			return;
-		},
+		components: { Parent2 },
 	};
 </script>

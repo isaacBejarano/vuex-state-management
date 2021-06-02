@@ -3,7 +3,18 @@
 		<h3>GrandChild Component</h3>
 		<h4>GrandChild State: {{ state3 }}</h4>
 
-		<Counter @emit-counter="counter(...$event)" :stateInit="state_init"></Counter>
+		<Counter>
+			<!-- input -->
+			<template v-slot:input>
+				<input v-model="incrementBy" id="n" type="number" step="1" min="1" />
+			</template>
+
+			<!-- tune -->
+			<template v-slot:tune>
+				<button class="btn btn-add" @mousedown="add(incrementBy)">+ {{ incrementBy }}</button>
+				<button class="btn btn-substract" @mousedown="substract(incrementBy)">- {{ incrementBy }}</button>
+			</template>
+		</Counter>
 	</section>
 </template>
 
@@ -15,20 +26,22 @@
 	export default {
 		name: "GrandChild", // devtools
 		components: { Counter },
-		props: { stateInit: Number },
-		setup(props: any) {
-			// -> props
-			let state_init = ref(props.stateInit);
+		setup() {
+			const limitN = 1;
 
 			// attr
-			let state3 = ref(state_init);
+			let incrementBy = ref(limitN);
+			let state3 = ref(0); // initial state
 
 			// methods
-			function counter(e: Event, payload: number) {
-				state3.value = payload;
+			function add(n: number): void {
+				state3.value += +n;
 			}
 
-			return { state3, state_init, counter };
+			function substract(n: number): void {
+				state3.value -= +n;
+			}
+			return { state3, incrementBy, add, substract };
 		},
 	};
 </script>

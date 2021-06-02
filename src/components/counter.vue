@@ -38,20 +38,22 @@
 	import { ref, watchEffect } from "vue";
 
 	export default {
-		// devtools
-		name: "Uncommunicated",
+		name: "Counter", // devtools
 		// Events
 		emits: {
 			["emitCounter"](e: Event, payload: number) {
 				return [e, payload];
 			},
 		},
-		setup(): object {
+		props: { stateInit: Number },
+		setup(props: any): object {
 			const limitN = 1;
 
 			// props
+			let state = ref(props.stateInit);
+
+			// attrs
 			let incrementBy = ref(limitN);
-			let state = ref(0);
 
 			// methods
 			function add(n: number): void {

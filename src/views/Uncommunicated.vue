@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-	import Parent from "../components/parent.vue";
+	import Parent from "../components/uncommunicated/parent.vue";
 
 	export default {
 		name: "Uncommunicated", // devtools

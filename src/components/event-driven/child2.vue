@@ -87,7 +87,7 @@
 	};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.child2 {
 		padding: 1rem;
 		background-color: palegoldenrod;

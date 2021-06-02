@@ -46,7 +46,7 @@
 	};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.grand-child {
 		padding: 1rem;
 		background-color: darkgray;

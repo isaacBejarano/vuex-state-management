@@ -51,7 +51,7 @@
 	};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.child {
 		padding: 1rem;
 		background-color: paleturquoise;

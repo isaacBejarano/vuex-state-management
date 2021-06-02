@@ -77,7 +77,7 @@
 	};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.grand-child2 {
 		padding: 1rem;
 		background-color: goldenrod;

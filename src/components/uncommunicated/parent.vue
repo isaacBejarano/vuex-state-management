@@ -51,7 +51,7 @@
 	};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.parent {
 		padding: 1rem;
 		max-width: 678px;

@@ -4,7 +4,7 @@
 
 		<!-- input -->
 		<fieldset>
-			<label for="nw"></label>
+			<label for="n"></label>
 			Setup Increment:
 			<slot name="input"></slot>
 		</fieldset>

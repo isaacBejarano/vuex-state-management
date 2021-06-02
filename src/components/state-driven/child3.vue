@@ -1,12 +1,23 @@
 <template>
-	<section class="child3">
+	<section class="child">
 		<h3>Child Component</h3>
 		<h4>Child State: {{ state2 }}</h4>
 
-		<Counter @emit-counter="counter(...$event)" :stateInit="state_init"></Counter>
+		<Counter>
+			<!-- input -->
+			<template v-slot:input>
+				<input v-model="incrementBy" id="n" type="number" step="1" min="1" />
+			</template>
+
+			<!-- tune -->
+			<template v-slot:tune>
+				<button class="btn btn-add" @mousedown="add(incrementBy)">+ {{ incrementBy }}</button>
+				<button class="btn btn-substract" @mousedown="substract(incrementBy)">- {{ incrementBy }}</button>
+			</template>
+		</Counter>
 
 		<!-- GrandChild -->
-		<GrandChild3 :stateInit="state_init"></GrandChild3>
+		<GrandChild3></GrandChild3>
 	</section>
 </template>
 
@@ -19,26 +30,29 @@
 	export default {
 		name: "Child3", // devtools
 		components: { Counter, GrandChild3 },
-		props: { stateInit: Number },
-		setup(props: any) {
-			// -> props
-			let state_init = ref(props.stateInit);
+		setup() {
+			const limitN = 1;
 
 			// attr
-			let state2 = ref(state_init);
+			let incrementBy = ref(limitN);
+			let state2 = ref(0); // initial state
 
 			// methods
-			function counter(e: Event, payload: number) {
-				state2.value = payload;
+			function add(n: number): void {
+				state2.value += +n;
 			}
 
-			return { state2, state_init, counter };
+			function substract(n: number): void {
+				state2.value -= +n;
+			}
+
+			return { state2, incrementBy, add, substract };
 		},
 	};
 </script>
 
 <style lang="scss">
-	.child3 {
+	.child {
 		padding: 1rem;
 		background-color: paleturquoise;
 	}

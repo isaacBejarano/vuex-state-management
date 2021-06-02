@@ -12,7 +12,7 @@
 		setup(): object {
 			// props
 			const developer = ref(<string>"@ 2021 Isaac Bejarano");
-			const made = ref(<string>"Made with 💚 in Vue 3.0, VueX, Vue Router and SASS");
+			const made = ref(<string>"Made with 💚 in Vue 3.0, VueX and SASS");
 
 			// return props
 			return { developer, made };

@@ -11,8 +11,8 @@
 
 			<!-- tune -->
 			<template v-slot:tune>
-				<button class="btn btn-add" @mousedown="add(incrementBy)">+ {{ incrementBy }}</button>
-				<button class="btn btn-substract" @mousedown="substract(incrementBy)">- {{ incrementBy }}</button>
+				<button class="btn btn-add" @mousedown="incrementPlusOrMinus(incrementBy, 'plus')">+ {{ incrementBy }}</button>
+				<button class="btn btn-substract" @mousedown="incrementPlusOrMinus(incrementBy, 'minus')">+ {{ incrementBy }}</button>
 			</template>
 		</Counter>
 
@@ -22,7 +22,8 @@
 </template>
 
 <script lang="ts">
-	import { ref } from "vue";
+	import { ref, watchEffect } from "vue";
+	import store from "@/store";
 
 	import Counter from "../counter.vue";
 	import GrandChild3 from "./grand-child3.vue";
@@ -35,18 +36,24 @@
 
 			// attr
 			let incrementBy = ref(limitN);
-			let state2 = ref(0); // initial state
+			let state2 = ref(0); // fallback
 
 			// methods
-			function add(n: number): void {
-				state2.value += +n;
+			function incrementPlusOrMinus(n: number, sign: string) {
+				const payload =
+					sign === "plus" //
+						? (state2.value += +n)
+						: sign === "minus"
+						? (state2.value -= +n)
+						: state2.value;
+
+				store.commit("setCount", payload);
 			}
 
-			function substract(n: number): void {
-				state2.value -= +n;
-			}
+			// VUEX @watch
+			watchEffect(() => (state2.value = store.getters.getCount));
 
-			return { state2, incrementBy, add, substract };
+			return { state2, incrementBy, incrementPlusOrMinus };
 		},
 	};
 </script>

@@ -1,7 +1,7 @@
 <template>
 	<section class="child">
 		<h3>Child Component</h3>
-		<h4>Child State: GrandChild State: {{ state2 }}</h4>
+		<h4>Child State: {{ state2 }}</h4>
 
 		<Counter @emit-counter="counter(...$event)" :stateInit="state_init"></Counter>
 
